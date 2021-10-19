@@ -11,7 +11,7 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def start_bot(message: types.Message):
-    await message.reply("Hi, I hope the bot runs properly")
+    await message.reply("Hi, send me the name of the city")
 
 
 @dp.message_handler()
