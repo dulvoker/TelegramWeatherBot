@@ -1,5 +1,6 @@
 import requests
 from pprint import pprint
+from datetime import  datetime
 from config import open_weather_token
 
 
@@ -10,13 +11,20 @@ def get_weather(city, open_weather_token):
         )
         data = r.json()
         pprint(data)
+
+        city_name = data['name']
+        wind_speed = data['wind']['speed']
+        weather_mood = data['weather'][0]['main']
+        current_temp = data['main']['temp']
+        temp_max = data['main']['temp_max']
+        temp_min = data['main']['temp_min']
     except Exception as ex:
         print(ex)
         print("Has the government changed the name of the city?")
 
 
 def main():
-    city = 'Almaty'
+    city = input("Enter the city name: ")
     get_weather(city, open_weather_token)
 
 
