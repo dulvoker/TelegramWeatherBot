@@ -1,6 +1,6 @@
 import requests
+import datetime
 from pprint import pprint
-from datetime import  datetime
 from config import open_weather_token
 
 
@@ -18,6 +18,13 @@ def get_weather(city, open_weather_token):
         current_temp = data['main']['temp']
         temp_max = data['main']['temp_max']
         temp_min = data['main']['temp_min']
+        sunrise = data['sys']['sunrise']
+        sunset = data['sys']['sunset']
+
+        sunrise = datetime.datetime.fromtimestamp(sunrise)
+        sunset = datetime.datetime.fromtimestamp(sunset)
+
+
     except Exception as ex:
         print(ex)
         print("Has the government changed the name of the city?")
