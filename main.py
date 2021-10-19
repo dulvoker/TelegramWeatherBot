@@ -10,7 +10,6 @@ def get_weather(city, open_weather_token):
             f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={open_weather_token}&units=metric"
         )
         data = r.json()
-        pprint(data)
 
         city_name = data['name']
         wind_speed = data['wind']['speed']
@@ -24,7 +23,7 @@ def get_weather(city, open_weather_token):
         sunrise = datetime.datetime.fromtimestamp(sunrise)
         sunset = datetime.datetime.fromtimestamp(sunset)
 
-
+        print(f"Sunrise - {sunrise}, and sunset - {sunset}")
     except Exception as ex:
         print(ex)
         print("Has the government changed the name of the city?")
