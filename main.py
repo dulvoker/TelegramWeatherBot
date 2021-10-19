@@ -22,8 +22,19 @@ def get_weather(city, open_weather_token):
 
         sunrise = datetime.datetime.fromtimestamp(sunrise)
         sunset = datetime.datetime.fromtimestamp(sunset)
+        sunrise = sunrise.strftime("%H:%M:%S")
+        sunset = sunset.strftime("%H:%M:%S")
+        current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+        current_time = datetime.datetime.now().strftime("%H:%M:%S")
 
-        print(f"Sunrise - {sunrise}, and sunset - {sunset}")
+        print(f"Date:  {current_date}\n"
+              f"City:  {city_name}\n"
+              f"Local time:  {current_time}\n"
+              f"Weather mood: {weather_mood}\n"
+              f"Current temperature:  {current_temp}°C\n"
+              f"Temperature varies from {temp_min}°C to {temp_max}°C\n"
+              f"Sunrise: {sunrise}, Sunset: {sunset}\n"
+              f"Wind speed: {wind_speed} m/s")
     except Exception as ex:
         print(ex)
         print("Has the government changed the name of the city?")
